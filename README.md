@@ -7,19 +7,18 @@ Incognito-Connect is a web application that provides a secure and user-friendly 
 
 ### User Authentication System
 
-The application implements a robust user authentication system that includes user registration, login, and password recovery functionalities. JSON Web Tokens (JWT) are utilized to enhance security.
+The app employs robust user authentication, covering registration, login, and password recovery, utilizing JWT for enhanced security.
 
 ### Secrets Posting Section
 
-The home screen of the application features a user-friendly interface for posting secrets. Each user is allowed to share one secret message. The application ensures the uniqueness of each user's post by associating it with the user's username.
+The home screen allows users to post secrets with a user-friendly interface, ensuring uniqueness by associating posts with usernames.
 
 ### Responsiveness Across Devices
 
-To provide a seamless user experience, the application is designed to be responsive on various devices such as tablets, desktops, and phones. Front-end frameworks like Bootstrap, Material-UI, or Tailwind CSS are employed to achieve responsiveness.
+Designed for seamless user experience across devices, leveraging frameworks as Tailwind CSS.
+### OAuth Google Integration
 
-### Optional Enhancement: OAuth Google Integration
-
-For an enhanced user experience, the project offers optional Google OAuth integration. Firebase is used for Google OAuth sign-in and sign-up. Successful implementation of this feature adds an additional merit to the assignment.
+Enhanced user experience with optional Google OAuth integration using Firebase for sign-in and sign-up. Successful implementation adds merit.
 
 ## Technologies Used
 
