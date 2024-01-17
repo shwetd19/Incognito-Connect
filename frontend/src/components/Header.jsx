@@ -6,7 +6,7 @@ export default function Header() {
 
   
   return (
-    <div className='bg-slate-200'>
+    <div className='bg-zinc-300'>
       <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
         <Link to='/'>
           <h1 className='font-bold'>Incognito Connect</h1>
@@ -19,7 +19,7 @@ export default function Header() {
             <li>Something</li>
           </Link> */}
           <Link to='/about'>
-            <li>About</li>
+            <li>About Me</li>
           </Link>
           <Link to='/profile'>
             {currentUser ? (
