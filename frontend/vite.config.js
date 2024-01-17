@@ -6,8 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        // target: "http://localhost:3000",
-        target: "https://incognito-connect-proj.vercel.app/",
+        target: "http://localhost:3000",
         secure: false,
       },
     },
