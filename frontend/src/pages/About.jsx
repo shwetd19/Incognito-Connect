@@ -42,12 +42,12 @@ export default function About() {
           <strong>LinkedIn</strong>
         </a>
         <a
-          href="https://shwetd19.github.io/"
+          href="https://github.com/shwetd19"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-400 hover:underline mr-4"
         >
-          <strong>Portfolio</strong>
+          <strong>Github</strong>
         </a>
         <a
           href="https://drive.google.com/file/d/1jldWv783htdfUuqMDBFlF3g1fNMTcc2e/view?usp=drive_link"

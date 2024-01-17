@@ -42,11 +42,12 @@ export default function SignIn() {
   };
   return (
     <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl text-center font-semibold my-7'>Sign In</h1>
+      <h1 className='text-4xl text-center font-semibold my-7'>Welcome Back!</h1>
+      <h2 className='text-1xl text-center font-semibold my-7'>You can sign in to access with your existing profile</h2>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input
           type='email'
-          placeholder='Email'
+          placeholder='Enter Your Email'
           id='email'
           className='bg-slate-100 p-3 rounded-lg'
           onChange={handleChange}
@@ -60,7 +61,7 @@ export default function SignIn() {
         />
         <button
           disabled={loading}
-          className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+          className='bg-blue-500 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
         >
           {loading ? 'Loading...' : 'Sign In'}
         </button>

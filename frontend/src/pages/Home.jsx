@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux"; // Import useSelector from react-redux
+import { useSelector } from "react-redux";
 import Modal from "../components/Modal";
 import Card from "./Card";
 
 const Home = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([]);
-  const { currentUser } = useSelector((state) => state.user); // Get currentUser from Redux store
+  const [errorMessage, setErrorMessage] = useState(""); // New state for error message
+  const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
         const response = await fetch("/api/message", {
-          method: "POST", // Change to POST
+          method: "POST",
         });
         if (response.ok) {
           const data = await response.json();
@@ -26,12 +27,18 @@ const Home = () => {
     };
 
     fetchMessages();
-  }, []); // Empty dependency array to run the effect only once on mount
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const name = currentUser.username; // Use currentUser.username instead of reading from the input
+    // Check if the user has already made a post
+    if (messages.some((msg) => msg.username === currentUser.username)) {
+      setErrorMessage("Single user cannot make multiple posts");
+      return;
+    }
+
+    const name = currentUser.username;
     const message = document.getElementById("message").value;
 
     try {
@@ -62,24 +69,28 @@ const Home = () => {
   }));
 
   return (
-    <div className="main">
+    <div className="main bg-gray-900">
+      <h1 className="text-white text-center text-2xl font-bold">
+        Post Fearlessly, Connect Freely, Anywhere.
+      </h1>
+
       <ul className="cards">
         {cardData.map((card, index) => (
           <Card key={index} description={card.description} />
         ))}
       </ul>
       <button
-        className="fixed bottom-4 right-4 bg-red-500 text-white p-2 rounded-full"
+        className="fixed bottom-4 right-4 bg-red-500 text-white p-3 rounded-full text-lg hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300"
         onClick={() => setOpen(true)}
       >
-        Post Something
+        Create Post
       </button>
 
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className="text-center w-80">
           <div className="max-w-md w-full mx-auto p-6 bg-gray-600 rounded-lg shadow-md">
-            <h2 className="text-3xl text-center text-pink-600 font-bold mb-6">
-              Create Post
+            <h2 className="text-3xl text-center text-blue-500 font-bold mb-6">
+              Post Something
             </h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
@@ -92,7 +103,7 @@ const Home = () => {
                 <input
                   id="name"
                   placeholder={currentUser.username}
-                  className="w-full px-3 py-2 border rounded-md bg-gray-800 text-white focus:border-blue-500 text-center" // Updated class
+                  className="px-0 py-2  rounded-md bg-gray-800 text-white focus:border-blue-500 text-center font-bold" // Updated class
                   required
                   type="text"
                   disabled
@@ -108,12 +119,13 @@ const Home = () => {
                 <textarea
                   id="message"
                   rows="4"
-                  placeholder="Message"
+                  placeholder="What's on your mind ?"
                   className="w-full px-3 py-2 border rounded-md bg-gray-800 text-white focus:border-blue-500"
                   required
                   type="text"
                 ></textarea>
-                <label
+                {/* Image Upload If the user want to make a insta post */}
+                {/* <label
                   className="block text-white text-sm font-semibold mb-2"
                   htmlFor="message"
                 >
@@ -124,12 +136,12 @@ const Home = () => {
                   id="image"
                   accept="image/*"
                   className="mb-4"
-                />
+                /> */}
               </div>
               <div>
                 <button
                   type="submit"
-                  className="bg-pink-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-pink-600 focus:outline-white"
+                  className="bg-blue-500 hover:bg-blue-600 focus:outline-white text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 ease-in-out"
                 >
                   Send
                 </button>
