@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Modal from "../components/Modal";
 
-export default function App() {
+import Card from "./Card";
+
+const Home = () => {
   const [open, setOpen] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -33,20 +35,50 @@ export default function App() {
     }
   };
 
+  const cardData = [
+    {
+      imageSrc:
+        "https://assets.codepen.io/652/photo-1468777675496-5782faaea55b.jpeg",
+      description:
+        "Dig into the freshest veggies of the season! This salad-in-a-jar features a mixture of leafy greens and seasonal vegetables, fresh from the farmer's market.",
+    },
+    {
+      imageSrc:
+        "https://assets.codepen.io/652/photo-1468777675496-5782faaea55b.jpeg",
+      description:
+        "Dig into the freshest veggies of the season! This salad-in-a-jar features a mixture of leafy greens and seasonal vegetables, fresh from the farmer's market.",
+    },
+    {
+      imageSrc:
+        "https://assets.codepen.io/652/photo-1468777675496-5782faaea55b.jpeg",
+      description:
+        "Dig into the freshest veggies of the season! This salad-in-a-jar features a mixture of leafy greens and seasonal vegetables, fresh from the farmer's market.",
+    },
+  ];
+
   return (
-    <main className="App">
+    <div className="main">
+      <ul className="cards">
+        {cardData.map((card, index) => (
+          <Card
+            key={index}
+            imageSrc={card.imageSrc}
+            description={card.description}
+          />
+        ))}
+      </ul>
       <button
         className="fixed bottom-4 right-4 bg-red-500 text-white p-2 rounded-full"
         onClick={() => setOpen(true)}
       >
-        Delete
+        Post Something
       </button>
 
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className="text-center w-80">
           <div className="max-w-md w-full mx-auto p-6 bg-gray-600 rounded-lg shadow-md">
             <h2 className="text-3xl text-center text-pink-600 font-bold mb-6">
-              Contact Us
+              Create Post
             </h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
@@ -54,11 +86,11 @@ export default function App() {
                   className="block text-white text-sm font-semibold mb-2"
                   htmlFor="name"
                 >
-                  Your Name
+                  Username
                 </label>
                 <input
                   id="name"
-                  placeholder="Name"
+                  placeholder="Please Enter your Username"
                   className="w-full px-3 py-2 border rounded-md bg-gray-800 text-white focus:border-blue-500"
                   required
                   type="text"
@@ -91,18 +123,7 @@ export default function App() {
                   accept="image/*"
                   className="mb-4"
                 />
-
-                {/* Add the "Post" button here */}
-                {/* <div>
-                  <button
-                    type="submit"
-                    className="bg-pink-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-pink-600 focus:outline-white"
-                  >
-                    Post
-                  </button>
-                </div> */}
               </div>
-
               <div>
                 <button
                   type="submit"
@@ -115,6 +136,8 @@ export default function App() {
           </div>
         </div>
       </Modal>
-    </main>
+    </div>
   );
-}
+};
+
+export default Home;
