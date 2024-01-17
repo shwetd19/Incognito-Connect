@@ -5,8 +5,8 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  // apiKey: "AIzaSyCBTbASF_tWpkWZERkp1n09ot9TCIKR8L8",
+  // apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  apiKey: "AIzaSyCBTbASF_tWpkWZERkp1n09ot9TCIKR8L8",
   authDomain: "anonymous-social-media.firebaseapp.com",
   projectId: "anonymous-social-media",
   storageBucket: "anonymous-social-media.appspot.com",
