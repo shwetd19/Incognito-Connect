@@ -6,8 +6,10 @@ import Card from "./Card";
 const Home = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(""); // New state for error message
+  // const [errorMessage, setErrorMessage] = useState(""); // New state for error message
   const { currentUser } = useSelector((state) => state.user);
+
+  // const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {
     const fetchMessages = async () => {
@@ -15,6 +17,7 @@ const Home = () => {
         const response = await fetch("/api/message", {
           method: "POST",
         });
+
         if (response.ok) {
           const data = await response.json();
           setMessages(data);
@@ -102,8 +105,8 @@ const Home = () => {
                 </label>
                 <input
                   id="name"
-                  placeholder={currentUser.username}
-                  className="px-0 py-2  rounded-md bg-gray-800 text-white focus:border-blue-500 text-center font-bold" // Updated class
+                  defaultValue={currentUser?.username || ""}
+                  className="px-0 py-2 rounded-md bg-gray-800 text-white focus:border-blue-500 text-center font-bold"
                   required
                   type="text"
                   disabled
@@ -119,7 +122,7 @@ const Home = () => {
                 <textarea
                   id="message"
                   rows="4"
-                  placeholder="What's on your mind ?"
+                  placeholder="What's on your mind?"
                   className="w-full px-3 py-2 border rounded-md bg-gray-800 text-white focus:border-blue-500"
                   required
                   type="text"
