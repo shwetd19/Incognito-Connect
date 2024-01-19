@@ -13,24 +13,29 @@ export default function About() {
         style={{ width: "200px", height: "200px" }} // Adjust the size as needed
       />
       <p className="mb-4 text-slate-700">
-        My name is <strong>Shwetas Dhake</strong>, and I am a 3rd-year Computer Engineering
-        student in my 6th semester. I am writing to express my interest in any
-        <strong> Full Stack Developer Intern</strong> position at <strong>Affworld Technologies</strong>.
+        My name is <strong>Shwetas Dhake</strong>, and I am a 3rd-year Computer
+        Engineering student in my 6th semester. I am writing to express my
+        interest in any
+        <strong> Full Stack Developer Intern</strong> position at{" "}
+        <strong>Affworld Technologies</strong>.
       </p>
       <p className="mb-4 text-slate-700">
-        With 6 months as a MERN stack developer, I excel in <strong>ReactJS, NodeJS,
-        MongoDB, and DevOps (Docker, Kubernetes)</strong>. I'm adept at designing,
-        developing, debugging, and deploying responsive web and mobile
-        applications, aiming to enhance user experiences. My proficiency spans
-        frontend and backend technologies, ensuring a comprehensive foundation
-        for full-stack development.
+        With 6 months as a MERN stack developer, I excel in{" "}
+        <strong>
+          ReactJS, NodeJS, MongoDB, and DevOps (Docker, Kubernetes)
+        </strong>
+        . I'm adept at designing, developing, debugging, and deploying
+        responsive web and mobile applications, aiming to enhance user
+        experiences. My proficiency spans frontend and backend technologies,
+        ensuring a comprehensive foundation for full-stack development.
       </p>
       <p className="mb-4 text-slate-700">
         I am enthusiastic about the opportunity to contribute to your team and
-        learn from the dynamic environment at <strong>Affworld Technologies</strong>. I am available at
-        your earliest convenience for an interview. Thank you for considering my
-        application. I look forward to the possibility of discussing how my
-        skills align with your requirements.
+        learn from the dynamic environment at{" "}
+        <strong>Affworld Technologies</strong>. I am available at your earliest
+        convenience for an interview. Thank you for considering my application.
+        I look forward to the possibility of discussing how my skills align with
+        your requirements.
       </p>
       <div className="flex">
         <a

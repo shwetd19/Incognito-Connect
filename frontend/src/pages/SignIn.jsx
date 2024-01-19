@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   signInStart,
   signInSuccess,
   signInFailure,
-} from '../redux/user/userSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import OAuth from '../components/OAuth';
+} from "../redux/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import OAuth from "../components/OAuth";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -22,10 +22,10 @@ export default function SignIn() {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch('/api/auth/signin', {
-        method: 'POST',
+      const res = await fetch("/api/auth/signin", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -35,46 +35,48 @@ export default function SignIn() {
         return;
       }
       dispatch(signInSuccess(data));
-      navigate('/');
+      navigate("/");
     } catch (error) {
       dispatch(signInFailure(error));
     }
   };
   return (
-    <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-4xl text-center font-semibold my-7'>Welcome Back!</h1>
-      <h2 className='text-1xl text-center font-semibold my-7'>You can sign in to access with your existing profile</h2>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+    <div className="p-3 max-w-lg mx-auto">
+      <h1 className="text-4xl text-center font-semibold my-7">Welcome Back!</h1>
+      <h2 className="text-1xl text-center font-semibold my-7">
+        You can sign in to access with your existing profile
+      </h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
-          type='email'
-          placeholder='Enter Your Email'
-          id='email'
-          className='bg-slate-100 p-3 rounded-lg'
+          type="email"
+          placeholder="Enter Your Email"
+          id="email"
+          className="bg-slate-100 p-3 rounded-lg"
           onChange={handleChange}
         />
         <input
-          type='password'
-          placeholder='Password'
-          id='password'
-          className='bg-slate-100 p-3 rounded-lg'
+          type="password"
+          placeholder="Password"
+          id="password"
+          className="bg-slate-100 p-3 rounded-lg"
           onChange={handleChange}
         />
         <button
           disabled={loading}
-          className='bg-blue-500 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+          className="bg-blue-500 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
         >
-          {loading ? 'Loading...' : 'Sign In'}
+          {loading ? "Loading..." : "Sign In"}
         </button>
         <OAuth />
       </form>
-      <div className='flex gap-2 mt-5'>
+      <div className="flex gap-2 mt-5">
         <p>Dont Have an account?</p>
-        <Link to='/sign-up'>
-          <span className='text-blue-500'>Sign up</span>
+        <Link to="/sign-up">
+          <span className="text-blue-500">Sign up</span>
         </Link>
       </div>
-      <p className='text-red-700 mt-5'>
-        {error ? error.message || 'Something went wrong!' : ''}
+      <p className="text-red-700 mt-5">
+        {error ? error.message || "Something went wrong!" : ""}
       </p>
     </div>
   );
