@@ -16,8 +16,7 @@ export default function About() {
         My name is <strong>Shwetas Dhake</strong>, and I am a 3rd-year Computer
         Engineering student in my 6th semester. I am writing to express my
         interest in any
-        <strong> Full Stack Developer Intern</strong> position at{" "}
-        <strong>Affworld Technologies</strong>.
+        <strong> Full Stack Developer Intern</strong> position.
       </p>
       <p className="mb-4 text-slate-700">
         With 6 months as a MERN stack developer, I excel in{" "}
